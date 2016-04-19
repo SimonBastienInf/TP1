@@ -3,16 +3,13 @@
 	background-repeat: no-repeat;
 }
 
-.index p {
-	margin-left: 550px;
-	margin;
-}
 
-.ImgIndex {
+
+.indexP {
 	position: absolute;
-	left: 350px;
+	left: 510px;
 	top: 50px;
-	width: 1500px;
+	
 }
 
 .Indexlogo img {
