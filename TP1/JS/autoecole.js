@@ -14,21 +14,17 @@
 var bd=null;//simulation base de donnees avec localStorage et json
 function ajoutInfo()
 {   	var nom=$( "#nom option:selected" ).val();
-    	var fimage=$( "#image option:selected" ).val();
+    	//var fimage=$( "#image option:selected" ).val();
 		var cap=$("#cap option:selected").val();
 		var acc=$('input[name="acc"]:first').val();
 		var env=$('input[name="env"]:first').val();
 		var date=$('input[name="date"]:first').val();
-		
-	//if((nom=="undefined")||(nom==null)||(fimage=="undefined")||(fimage==null)){
-	//	alert("spécifier le nom et l'image svp");
-	//	retourn(false); //on ne change rien si
-	//}
+
 	lireBdJson();
 	var descJsonObjects=bd.descriptions;
 	var jsonObject={ //creation de json
 		"nom":nom,
-		"image":fimage,
+		//"image":fimage,
 		"capacite":cap,
 		"acces":acc,
 		"environemment":env,
@@ -81,7 +77,7 @@ function lireBdJson()
 		jsonObject=descJsonObjects[i];
 		var div='<div class="ajoutjson">';
 		    div=div+'<h3 class="nom">'+jsonObject.nom+'</h3>';
-		    div=div+'<img src='+jsonObject.image+'>';
+		   // div=div+'<img src='+jsonObject.image+'>';
 		    div=div+'<div class="capacite">'+"Capacite: "+jsonObject.capacite+'</div>';
 		    div=div+'<div class="acces">'+"Acces: "+jsonObject.acces+'</div>';
 		    div=div+'<div class="environemment">'+"Environemment: "+jsonObject.environemment+'</div>';
@@ -99,14 +95,14 @@ function mettreAJourBdJson()
 	var descJsonObjects=bd.descriptions;
 	$('div[class="ajoutjson"]').each(function(){
 		var nom=$(this).find('h3[class="nom"]:first').html();
-		var fimage=$(this).find('img:first').attr('src');
+		//var fimage=$(this).find('img:first').attr('src');
 		var cap=$(this).find('div[class="capacite"]:first').html();
 		var acc=$(this).find('div[class="acces"]:first').html();
 		var env=$(this).find('div[class="environemment"]:first').html();
 		var date=$(this).find('div[class="date"]:first').html();
 		var jsonObject={ //creation de json
 		"nom":nom,
-		"image":fimage,
+		//"image":fimage,
 		"capacite":cap,
 		"acces":acc,
 		"environemment":env,
@@ -205,6 +201,50 @@ function stade(nom){
 		  $("#contenu1:first").append(div);//on ajoute à la fin de l'élément
 		  		    
 	
+}
+
+function table(){
+	bd=localStorage.getItem('bdjson');
+	if((bd=="undefined")||(bd==null))
+	{//ici on doit initialiser la bd
+	initialiserBdJson();
+	
+	}
+	else{
+		bd=JSON.parse(bd);//parsing de objet json
+	}
+	connecte=sessionStorage.getItem("connecte");
+	if((connecte=="undefined")||(connecte==null)){
+		$("#fajout").eq(0).css({"display":"none"});
+		$("#fconnexion").eq(0).css({"display":"block"});
+		
+	}
+	else{
+		$("#fajout").css({"display":"block"});
+		$("#fconnexion").css({"display":"none"});
+	}
+	var descJsonObjects=bd.descriptions;
+
+	var pos=-1;
+	for(var i=0;i<descJsonObjects.length;i++){
+		jsonObject=descJsonObjects[i];
+		if(jsonObject.nom==nom){
+		pos=i;
+		}
+	}if(pos==-1){	var hra="Les informations sur ce stade ne sont pas encore disponible.";
+	 $("#data:first").append(hra);
+		    }
+		var jsonObject=null;
+		var table='<tr>'+'<th>'+"Nom"+'</th>'+'<th>'+"Date de mise en service"+'</th>'+'</tr>';
+		jsonObject=descJsonObjects[pos];
+		    table=table+'<tr>'+'<td>'+jsonObject.nom+'</td>';
+		    div=div+'<div class="capacite">'+"Capacite: "+jsonObject.capacite+'</div>';
+		    div=div+'<div class="acces">'+"Acces: "+jsonObject.acces+'</div>';
+		    div=div+'<div class="environemment">'+"Environemment: "+jsonObject.environemment+'</div>';
+		    div=div+'<div class="date">'+"Date de mise en service: "+jsonObject.date+'</div>';
+
+		  div=div+'</div>'; 
+		  $("#date:first").append(div);//on ajoute à la fin de l'élément
 }
 
 $(document).ready(function(){

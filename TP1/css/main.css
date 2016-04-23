@@ -51,19 +51,24 @@
 }
 
 .English h1 {
-	margin-left: 150px;
+	margin-left: 440px;
 }
 
 .Esp h1 {
-	margin-left: 55px;
+	margin-left: 300px;
 }
 
-.English img {
-	margin-left: 475px;
+.English iframe {
+	margin-left: 400px;
 }
 
-.Esp img {
-	margin-left: 475px;
+.Esp iframe{
+	margin-left: 275px;
+}
+
+.English a{
+	margin-left: 500px;
+
 }
 
 .menu {

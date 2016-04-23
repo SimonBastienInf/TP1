@@ -1,10 +1,9 @@
 div.annime {
-	-moz-animation-duration: 12s;
-	-webkit-animation-duration: 12s;
-	-moz-animation-name: annime;
-	-webkit-animation-name: annime;
-	-webkit-animation-iteration-count: 1;
-	-moz-animation-iteration-count: 1;
+
+	animation-duration: 12s;
+	animation-name: annime;
+
+	animation-iteration-count: 1;
 	animation-delay:1s;
 	width: 100px;
 	height: 150px;
