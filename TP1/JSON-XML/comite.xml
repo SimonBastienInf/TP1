@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/css" href="../CSS/listeComite.css"?>
+<comite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="liste.xsd">
+	<personnalite>
+		<nom>Yaser</nom>
+		<prenom>Arafat</prenom>
+		<domaine>TIs</domaine>
+	</personnalite>
+	<personnalite>
+		<nom>Oma</nom>
+		<prenom>Lame</prenom>
+		<domaine>Finance</domaine>
+	</personnalite>
+	<personnalite>
+		<nom>Inouf</nom>
+		<prenom>Latouffe</prenom>
+		<domaine>Administration</domaine>
+	</personnalite>
+	<personnalite>
+		<nom>Pierre</nom>
+		<prenom>Karl</prenom>
+		<domaine>Ressource humaine</domaine>
+	</personnalite>
+	<personnalite>
+		<nom>leChiffre</nom>
+		<prenom>Simon</prenom>
+		<domaine>Comptabilité</domaine>
+	</personnalite>
+</comite>
